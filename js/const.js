@@ -1,5 +1,5 @@
 const ServerUrl = {
-  GET_URL: 'https://25.javascript.pages.academy/keksobooking/data',
+  GET_URL: './data/data.json',
   POST_URL: 'https://25.javascript.pages.academy/keksobooking',
 };
 
