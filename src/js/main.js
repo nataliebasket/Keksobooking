@@ -1,6 +1,8 @@
-import './map.js';
-import './form.js';
 import '../css/normalize.css';
 import '../css/style.css';
-import '../leaflet/leaflet.css';
-import '../nouislider/nouislider.css';
+import '../libs/leaflet/leaflet.css';
+import '../libs/nouislider/nouislider.css';
+
+import './map.js';
+import './form.js';
+

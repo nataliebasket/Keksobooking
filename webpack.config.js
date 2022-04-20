@@ -1,7 +1,8 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -9,6 +10,7 @@ module.exports = {
   entry: './js/main.js',
   output: {
     path: path.resolve(__dirname, 'build'),
+    filename: '[name].[contenthash].js',
     clean: true,
   },
   devServer: {
@@ -16,7 +18,8 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      inject: 'body'
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -33,20 +36,14 @@ module.exports = {
           to: path.resolve(__dirname, 'build/')
         },
         {
-          from: path.resolve(__dirname, 'src/leaflet/'),
-          to: path.resolve(__dirname, 'build/leaflet/')
-        },
-        {
-          from: path.resolve(__dirname, 'src/nouislider/'),
-          to: path.resolve(__dirname, 'build/nouislider/')
-        },
-        {
-          from: path.resolve(__dirname, 'src/pristine/'),
-          to: path.resolve(__dirname, 'build/pristine/')
+          from: path.resolve(__dirname, 'src/libs/'),
+          to: path.resolve(__dirname, 'build/libs/')
         },
       ]
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
   ],
   module: {
     rules: [
@@ -56,4 +53,9 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  }
 }

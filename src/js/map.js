@@ -1,3 +1,4 @@
+// import L from '../leaflet/leaflet.js';
 import {createPopup} from './popup.js';
 import {getAds} from './api.js';
 import {disableForm, disableMapFilters} from './form-switcher.js';
@@ -20,6 +21,7 @@ const similarPinIcon = L.icon({
   iconUrl: './img/pin.svg',
   iconSize: [40, 40],
   iconAnchor: [20, 40],
+
 });
 
 const getLocationToString = (obj, number) => {
