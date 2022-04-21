@@ -3,13 +3,22 @@
   "description": "Проект «Кексобукинг», сборка webpack",
   "private": true,
   "devDependencies": {
+    "@squoosh/lib": "^0.4.0",
     "browser-sync": "2.27.7",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "eslint": "8.7.0",
     "eslint-config-htmlacademy": "5.0.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "image-minimizer-webpack-plugin": "^3.2.3",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^10.0.1",
     "mini-css-extract-plugin": "^2.6.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.7.1",
@@ -19,8 +28,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "lint": "eslint js/",
-    "style": "stylelint css/",
+    "lint": "eslint src/js/",
+    "style": "stylelint src/css/",
     "dev": "npx webpack --mode development",
     "build": "npx webpack --mode production"
   }
